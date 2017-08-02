@@ -22,3 +22,4 @@ var revealPoint = function(points) {
              animatePoints(pointsArray);
          }
       });
+    }
