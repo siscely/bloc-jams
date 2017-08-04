@@ -29,6 +29,21 @@ var albumPicasso = {
      ]
  };
 
+ var albumAdele = {
+      title: 'Album-19',
+      artist: 'Adele',
+      label: 'EM',
+      year: '2016',
+      albumArtUrl: 'assets/images/album_covers/01.png',
+      songs: [
+          { title: 'Hometown Glory', duration: '4:26' },
+          { title: 'Skyfall', duration: '3:14' },
+          { title: 'Hello', duration: '5:01' },
+          { title: 'Send My Love', duration: '3:21'},
+          { title: 'I miss you', duration: '2:15'}
+      ]
+  };
+
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -76,8 +91,12 @@ if (event.target.parentElement.className === 'album-view-song-item') {
     }
 });
 for (var i = 0; i < songRows.length; i++) {
-  songRows[i].addEventListener('mouseleave', function(event) {
-  this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+songRows[i].addEventListener('mouseleave', function(event) {
+this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
         });
-    }
+      }
+for (var i=0; i < albumImage.length; i++) {
+  albumImage[i].addEventListener('click', function(event){
+  albumImage[i+1].setAttribute('src', album.albumArtUrl);
+    });
  };
