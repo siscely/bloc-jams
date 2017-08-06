@@ -78,6 +78,15 @@ var albumPicasso = {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
      }
  };
+ var findParentByClassName = function(element, targetClass) {
+    if (element) {
+        var currentParent = element.parentElement;
+        while (currentParent.className !== targetClass && currentParent.className !== null) {
+            currentParent = currentParent.parentElement;
+        }
+        return currentParent;
+    }
+};
 
 var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
 var songRows = document.getElementsByClassName('album-view-song-item');
