@@ -1,2 +1,0 @@
-
-$.each($('.point'), revealPoint);
