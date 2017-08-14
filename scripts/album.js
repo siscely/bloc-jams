@@ -1,3 +1,41 @@
+// var $playerBarControl = $('.main-controls .play-pause')
+//    $playerBarControl.click(togglePlayFromPlayerBar);
+//
+// var togglePlayFromPlayerBar = function () {
+//    if(currentSoundFile.isPaused() && ('.maincontrols .play-pause').html(playerBarPlayButton){
+//       var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+//       currentlyPlayingCell.html(playerBarPauseButton);
+//       $(this).html(playerBarPauseButton);
+//       currentSoundFile.play();
+//    }
+//
+//    else if (currentSoundFile) {
+//       if ('.main-controls .play-pause').html(playerBarPauseButton){
+//       currentlyPlayingCell.html(playerBarPlayButton);
+//       $(this).html(playerBarPlayButton);
+//      	}
+//     }
+// });
+
+var setCurrentTimeInPlayerBar = function(filterTimeCode(currentTime)) {
+  $('.current-time').text(currentTime);
+}
+
+var setTotalTimeInPlayerBar = function(filterTimeCode(totalTime)) {
+ $('.total-time').text(totalTime);
+}
+//
+var filterTimeCode = function(timeInSeconds){
+  var time = parseFloat(timeInSeconds/60);
+  return Math.round(time * 100)/100;
+}
+
+//
+// setCurrentTimeInPlayerBar(seekBarFillRatio * currentSoundFile.getDuration(), filterTimeCode(setTime));
+//
+// setTotalTimeInPlayerBar(currentSoundFile.getDuration(), filterTimeCode(setTime));
+//
+//
 var getSongNumberCell = function(number){
   return $('.song-item-number[data-song-number="' + number + '"]');
 };
@@ -131,6 +169,7 @@ var updateSeekBarWhileSongPlays = function() {
              var $seekBar = $('.seek-control .seek-bar');
 
              updateSeekPercentage($seekBar, seekBarFillRatio);
+             setCurrentTimeInPlayerBar(this.getTime());
          });
      }
  };
@@ -264,6 +303,8 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
+
+    setTotalTimeInPlayerBar(currentSongFromAlbum.duration);
 };
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
