@@ -17,18 +17,18 @@
 //     }
 // });
 
-var setCurrentTimeInPlayerBar = function(filterTimeCode(currentTime)) {
-  $('.current-time').text(currentTime);
-}
+var setCurrentTimeInPlayerBar = function(currentTime) {
+    $('.current-time').text(filterTimeCode(currentTime));
+};
 
-var setTotalTimeInPlayerBar = function(filterTimeCode(totalTime)) {
- $('.total-time').text(totalTime);
-}
+var setTotalTimeInPlayerBar = function(totalTime) {
+   $('.total-time').text(filterTimeCode(totalTime));
+};
 //
 var filterTimeCode = function(timeInSeconds){
   var time = parseFloat(timeInSeconds/60);
   return Math.round(time * 100)/100;
-}
+};
 
 //
 // setCurrentTimeInPlayerBar(seekBarFillRatio * currentSoundFile.getDuration(), filterTimeCode(setTime));
@@ -124,7 +124,7 @@ var createSongRow = function(songNumber, songName, songLength) {
     '<tr class="album-view-song-item">'
   + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
   + '  <td class="song-item-title">' + songName + '</td>'
-  + '  <td class="song-item-duration">' + songLength + '</td>'
+  + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
   + '</tr>'
   ;
 
