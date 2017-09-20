@@ -24,12 +24,6 @@ var filterTimeCode = function(timeInSeconds){
   return Math.round(time * 100)/100;
 };
 
-//
-// setCurrentTimeInPlayerBar(seekBarFillRatio * currentSoundFile.getDuration(), filterTimeCode(setTime));
-//
-// setTotalTimeInPlayerBar(currentSoundFile.getDuration(), filterTimeCode(setTime));
-//
-//
 var getSongNumberCell = function(number){
   return $('.song-item-number[data-song-number="' + number + '"]');
 };
